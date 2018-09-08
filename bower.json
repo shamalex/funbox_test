@@ -1,0 +1,21 @@
+{
+    "name": "funbox",
+    "description": "",
+    "main": "",
+    "authors": [
+        "Shamshin Alex"
+    ],
+    "license": "ISC",
+    "homepage": "http://alex-front.ru",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies":
+    {
+        "normalize.css": "^8.0.0"
+    }
+}

@@ -1,0 +1,41 @@
+/*========================================================
+ *   @file:          mixin.scss
+ *   @description:   styles
+ *   @author:        Alex Shamshin
+ *   @contact:       shamshin.alexandr@gmail.com
+ *   @date:          08.09.2018
+=========================================================*/
+
+// Breakpoints for each query
+$breakpoints: (
+  'xs':320px,
+  'xs375':375px,
+  'iphone7': 414px,
+  'sm576': 576px,
+  'small':  768px,
+  'medium': 992px,
+  'landscape': 1024px,
+  'large':  1200px,
+  'xl':  1440px,
+  'xxl':  1920px,
+) !default;
+
+/// Mixin to manage responsive breakpoints
+/// @author Hugo Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
